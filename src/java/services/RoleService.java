@@ -20,9 +20,8 @@ public class RoleService {
       List<Role> roles = roleDB.getAll();
       return roles;
   }
-  public int get(Role role) throws Exception{
-      String roleName = role.getName();
-      if(roleName.equals("system admin")){
+  public int get(String roleId) throws Exception{
+      if(roleId.equals("system admin")){
           return 1;
       }else{
           return 2;

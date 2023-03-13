@@ -5,9 +5,11 @@
  */
 package services;
 
+import dataacces.RoleDB;
 import dataacces.UserDB;
 import java.util.List;
 import models.Role;
+import static models.Role_.roleId;
 import models.User;
 
 /**
@@ -25,21 +27,33 @@ public class UserService {
        User user = userDB.get(email);
        return user; 
     }
-    public void insert(String email, String firstName, String lastName, String password, Role role) throws Exception{
-        User user = new User(email, firstName, lastName,password, role);
-        UserDB userDB = new UserDB();
-        userDB.insert(user);     
+    public void insert(String email, String firstName, String lastName, String password, int roleId) throws Exception{
+        User user = new User(email, firstName, lastName,password);
+        RoleDB roledb = new RoleDB();
+        Role role = roledb.get(roleId);
+        user.setRole(role);
+        
+        UserDB userdb = new UserDB();
+        userdb.insert(user);
     }
-    public void update(String email,String firstName,String lastName,String password, Role role) throws Exception{
-        User user = new User(email, firstName, lastName,password, role);
-        UserDB userDB = new UserDB();
-        userDB.update(user);
+    public void update(String email,String firstName,String lastName,String password, int roleId) throws Exception{
+        UserDB userdb = new UserDB();
+        User user = userdb.get(email);
+        RoleDB roledb = new RoleDB();
+        Role role = roledb.get(roleId);
+        
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setPassword(password);
+        user.setRole(role);
+        
+        userdb.update(user);
     }
     public void delete(String email) throws Exception{
-        User user = new User();
-        user.setEmail(email);
-        UserDB userDB = new UserDB();
-        userDB.delete(user);
+      UserDB userdb = new UserDB();
+      User user = userdb.get(email);
+      
+      userdb.delete(user);
         
         
     }
