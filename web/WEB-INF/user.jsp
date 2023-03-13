@@ -28,7 +28,7 @@
                     <td>${user.email}</td>
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
-                    <td>${user.role.roleInfo}</td>
+                    <td>${user.role.roleName}</td>
                             <td>
                                 <c:url value="/users" var="editUsers">
                                     <c:param name="email" value="${user.email}"/>
