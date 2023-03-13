@@ -28,14 +28,7 @@
                     <td>${user.email}</td>
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
-                    <c:choose>
-                        <c:when test="${user.getRole().getId() == 1}">
-                            <td>system admin</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td>regular user</td>
-                        </c:otherwise>
-                    </c:choose>
+                    <td>${user.role.roleInfo}</td>
                             <td>
                                 <c:url value="/users" var="editUsers">
                                     <c:param name="email" value="${user.email}"/>
