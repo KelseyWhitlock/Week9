@@ -6,15 +6,13 @@
 package dataacces;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import models.Role;
 import models.User;
-import static org.apache.tomcat.jni.Socket.pool;
-import org.eclipse.persistence.sessions.server.ConnectionPool;
+
 
 
 /**

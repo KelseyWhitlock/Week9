@@ -9,7 +9,6 @@ import dataacces.RoleDB;
 import dataacces.UserDB;
 import java.util.List;
 import models.Role;
-import static models.Role_.roleId;
 import models.User;
 
 /**
